@@ -1,0 +1,26 @@
+[
+  {
+    "slug": "laraya",
+    "requested": 360,
+    "broken": 0,
+    "client": 345,
+    "scroll": 345,
+    "width": 360
+  },
+  {
+    "slug": "laraya",
+    "requested": 768,
+    "broken": 0,
+    "client": 753,
+    "scroll": 753,
+    "width": 768
+  },
+  {
+    "slug": "laraya",
+    "requested": 1366,
+    "broken": 0,
+    "client": 1351,
+    "scroll": 1351,
+    "width": 1366
+  }
+]

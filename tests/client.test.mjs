@@ -1,0 +1,4 @@
+import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';
+const initial=JSON.parse(fs.readFileSync(new URL('../catalog/initial-store.json',import.meta.url)));const masters=JSON.parse(fs.readFileSync(new URL('../catalog/library-products.json',import.meta.url)));
+test('initial catalog uses the requested tenant, contact and product selection',()=>{assert.equal(initial.store.slug,'laraya');assert.equal(initial.store.whatsapp,'6282357873701');assert.equal(initial.products.length,27);assert.ok(initial.products.every(p=>p.library_product_id));});
+test('all published supplier prices exactly follow verified retail masters',()=>{for(const p of initial.products.filter(p=>p.library_product_id)){const master=masters.find(m=>m.id===p.library_product_id);assert.equal(p.price,master.retail_price??0);assert.equal(p.price_confirm,master.retail_price===null);assert.equal(p.stock_confirm,true);}});
